@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			em{
+				list-style: none;
+				color: red;
+			}
+			#list{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				
+			}
+			#list:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			li{
+				float: left;
+				margin: 0 5px 0 0;
+				width: 20px;
+				height: 22px;
+				background: url(img/star.gif) no-repeat;
+			}
+			.good{
+				background: url(img/good_star.gif) no-repeat;
+			}
+			.bad{
+				background: url(img/bad_star.gif) no-repeat;
+			}
+			span{
+				display: none;
+			}
+			.active{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<em>*</em>
+			<strong>总体评价：</strong>
+			<ul id="list">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<span class="active">提示</span>
+			<span>差</span>
+		</div>
+	</body>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		var $lis=$('#list li');
+		var num=-1;
+		$lis.each(function(i,item){
+			
+			$(item).mouseover(function(){
+				$lis.removeClass();
+				if($(this).index()<2){
+					for(var j=0;j<=$(this).index();j++){
+						$($lis[j]).addClass('bad');	
+					}	
+				}else{
+					for(var j=0;j<=$(this).index();j++){
+						$($lis[j]).addClass('good');	
+					}
+				}
+			});
+			
+			$(item).click(function(){
+				num=$(this).index();
+			});
+			$(item).mouseout(function(){
+				$lis.removeClass();
+				console.log(num);
+				if(num>=0){
+					if(num<2){//如果num>2 代表 点击的li 小于第三个  
+						for(var j=0;j<=num;j++){
+							$lis[j].className='bad';
+						}		
+					}else{
+						for(var j=0;j<=num;j++){//给所有li加good样式
+							$lis[j].className='good';	
+						}
+					}
+				}
+			});
+			
+		})
+		
+			/*var num=-1;//设置一个变量num 让其小于0的即可
+			
+			lis[i].onmouseleave=function(){//鼠标移出时
+				for(var i=0;i<lis.length;i++){
+					lis[i].className='';//所有的li进行大清洗
+				}
+				if(num>=0){//如果num>=0 代表发生点击事件，
+					if(num<2){//如果num>2 代表 点击的li 小于第三个  
+						for(var j=0;j<=num;j++){//给小于第三个的所有li加 bad样式
+							lis[j].className='bad';	
+						}	
+					}else{//num>=2 
+						for(var j=0;j<=num;j++){//给所有li加good样式
+							lis[j].className='good';	
+						}
+					}
+				}
+			}
+		}*/
+	</script>
+</html>
