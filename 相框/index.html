@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+				font: 16px/30px "微软雅黑";
+				color: #000;
+			}
+			a{
+				text-decoration: none;
+				
+			}
+			#wrap{
+				position: relative;
+				width: 873px;
+				height: 545px;
+				background: url(img/bg.gif);
+				margin: 30px auto;
+			}
+			#leftPic{
+				position: absolute;
+				top:107px;
+				left: 49px;
+				width: 448px;
+				height: 245px;
+			}
+			
+			#rightPic{
+				position: absolute;
+				top:107px;
+				left: 559px;
+				width: 248px;
+				height: 245px;
+			}
+			
+			span{
+				width: 50px;
+				height: 30px;
+				text-align: center;
+			}
+			#leftNum{
+				position: absolute;
+				bottom: 150px;
+				left: 49px;
+			}
+			#rightNum{
+				position: absolute;
+				bottom: 150px;
+				right: 150px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload= function(){
+				var wrap=document.getElementById('wrap');
+				var btns=document.getElementsByTagName('a');
+				var leftPic=document.getElementById('leftPic');
+				var rightPic=document.getElementById('rightPic');
+				var leftNum=document.getElementById('leftNum');
+				var rightNum=document.getElementById('rightNum');
+				var picsL=['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+				var picsR=['img/1.jpg','img/2.jpg','img/3.jpg'];
+				var i=0;
+				var j=0;
+				init();
+				//初始化
+				function init(){
+					leftPic.src=picsL[i];
+					leftNum.innerHTML=(i+1)+'/'+picsL.length;
+					rightPic.src=picsR[j];
+					rightNum.innerHTML=(j+1)+'/'+picsR.length;	
+				}
+				//左边图片单张切换
+				function toLeft(){
+					i++;
+					if(i>picsL.length-1){
+						i=0;
+					}
+					init();
+				}
+				function toLeftL(){
+					i--;
+					if(i<0){
+						i=picsL.length-1;
+					}
+					init();
+				}
+				//右边图片单张切换
+				function toRight(){
+					j++;
+					if(j>picsR.length-1){
+						j=0;
+					}
+					init();
+				}
+				function toRightR(){
+					j--;
+					if(j<0){
+						j=picsR.length-1;
+					}
+					init();
+				}
+				leftPic.onclick=toLeft;
+				rightPic.onclick=toRight;
+				btns[1].onclick=function(){
+					toLeft();
+					toRight();
+					init();
+				};
+				btns[0].onclick =function(){
+					toLeftL();
+					toRightR();
+					init();
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<a href="javascript:;">上一组</a>
+			<a href="javascript:;">下一组</a>
+			<img src="" id="leftPic">
+			<span id="leftNum"></span>
+			<img src="img/1.jpg" id="rightPic">
+			<span id="rightNum"></span>
+			
+		</div>
+	</body>
+</html>
