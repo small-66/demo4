@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="file"  id="file">
+	<script type="text/javascript">
+	var f = document.getElementById('file');
+
+	f.onchange = function(){
+		var file = this.files[0];
+		
+		var fr = new FileReader();
+
+		fr.onload = function(ev){
+			var result = ev.target.result;
+			console.log(result);
+			/*var img = new Image();
+
+			img.src = result;
+
+			document.body.appendChild(img);*/
+		};
+
+		//fr.readAsDataURL(file);把文件解析为base64格式的编码。
+		// fr.readAsText(file);解析文本
+
+		fr.readAsArrayBuffer(file);
+	};
+
+	</script>
+</body>
+</html>
