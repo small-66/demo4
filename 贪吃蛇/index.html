@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				font:16px/30px "微软雅黑";
+				background: #e8fffb;
+			}
+			h2{
+				margin: 0;
+			}
+			#snake{
+				margin: 30px auto;
+				width: 800px;
+				border: 2px solid #000;
+			}
+			#info{
+				height: 60px;
+				border-bottom: 2px solid #000;
+				background: #eee;
+			}
+			#info h2{
+				text-align: center;
+				font: 28px/60px "微软雅黑";
+				color: #fefefe;
+			}
+			#map{
+				padding: 5px 0;
+				border-bottom: 2px solid #000;
+			}
+			#map table{
+				margin: 0 auto;
+				border: 1px solid #000;
+			}
+			#map table td{
+				background: #fff;
+				width: 22px;
+				height: 22px;
+				border: 1px solid #fec489;
+			}
+			
+			#map table td.snake{
+				background: #728cff;
+			}
+			#map table td.food{
+				background: #81ff9c;
+			}
+			#map table td.block{
+				background: #f72ab5;
+			}
+			#map table td.skate{
+				background: #ebff1d;
+			}
+			#map table td.break{
+				background: #20f5fb;
+			}
+			
+			#help{
+				height: 50px;
+				display: flex;
+			}
+			.left{
+				width: 75%;
+				display: flex;
+				border-right: 1px solid red;
+				justify-content: space-around;
+				align-items: center;
+			}
+			.right{
+				flex: 1;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+			}
+			.left div{
+				height: 50px;
+				display: flex;
+				align-items: center;
+			}
+			.left div span{
+				width: 22px;
+				height: 22px;
+				display: inline-block;
+				border: 1px solid greenyellow;
+				background: blue;
+				margin-left: 5px;
+			}
+			input{
+				width: 100%;
+				background: #728CFF;
+				font: bold 18px/30px "微软雅黑";
+				color: #ADFF2F;
+				border: none;
+				border-top:  1px solid #000;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="snake">
+			<header id="info">
+				<h2>贪吃蛇</h2>
+			</header>
+			<section id="map">
+				
+			</section>
+			<footer id="help">
+				<div class="left">
+					<div><span></span>蓝瘦</div>
+					<div><span></span>香菇</div>
+					<div><span></span>神器</div>
+					<div><span></span>千万别吃</div>
+				</div>
+				<div class="right">
+					<span>得分：<i id="score">0</i>分</span>
+				</div>
+			</footer>
+			<input type="button" name="start" id="start" value="start" />
+		</div>
+		<script type="text/javascript">
+			(function(){
+				var colors=['#81ff9c','#f72ab5','#ebff1d','#20f5fb'];
+				var spans= document.querySelectorAll('.left span');
+				//spans=[...spans];//把类数组转换为数组；
+				spans=Array.from(spans);
+				spans.forEach((item,i)=>{
+					item.style.background=colors[i];
+				});
+			})()
+		</script>
+		<script src="js/snake.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
