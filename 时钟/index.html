@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.clearFix{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			#wrap {
+				width: 500px;
+				height: 500px;
+				margin: 30px auto;
+				background: url(images/bg.png) no-repeat;
+				padding: 10px;
+			}
+			#box{
+				width: 500px;
+				height: 500px;
+				text-align: center;
+				
+			}
+			#title{
+				display: block;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="wrap">
+			<div id="box">
+				<img src="images/title.png" id="title"/>
+				<img src="images/0.png" class="time"/>
+				<img src="images/0.png" class="time"/>
+				<img src="images/0.png" class="time"/>
+				<img src="images/0.png" class="time"/>
+				<img src="images/year.png" />
+				<img src="images/0.png" class="time"/>
+				<img src="images/9.png" class="time"/>
+				<img src="images/month.png" />
+				<img src="images/2.png" class="time"/>
+				<img src="images/9.png" class="time"/>
+				<img src="images/seven.png" />
+				<br />
+				<br />
+				<br />
+				<br />
+				<img src="images/1.png" class="time"/>
+				<img src="images/5.png" class="time"/>
+				<img src="images/sign.png" />
+				<img src="images/2.png" class="time"/>
+				<img src="images/9.png" class="time"/>
+				<img src="images/sign.png" />
+				<img src="images/0.png" class="time"/>
+				<img src="images/0.png" class="time"/>
+				<br />
+				<br />
+				<br />
+				<br />
+				<img src="images/week.png" />
+				<img src="images/one.png" class="time" />
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript">
+		getDate1();
+		setInterval(getDate1,1000);
+		function getDate1(){
+			var date = new Date();
+			var year= date.getFullYear().toString();
+			var month= toDB(date.getMonth()+1);
+			var date1=toDB(date.getDate());
+			var hours= toDB(date.getHours());
+			var minutes=toDB(date.getMinutes());
+			var seconds=toDB(date.getSeconds());
+			var day=date.getDay();
+			var week=['seven','one','two','three','four','five','six'];
+			var imgs=document.getElementsByClassName('time');
+			var str=year+month+date1+hours+minutes+seconds;
+			imgs[imgs.length-1].src='images/'+week[day]+'.png';
+			for(var i=0;i<imgs.length-1;i++){
+				imgs[i].src='images/'+str.charAt(i)+'.png';
+			}
+		}
+		function toDB(x){
+			return x<10?'0'+x:''+x;
+		}
+	</script>
+</html>

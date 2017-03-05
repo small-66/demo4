@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/miaov.js"></script>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.clearFix{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			#wrap {
+				width: 500px;
+				height: 500px;
+				margin: 30px auto;
+				background: url(images/bg.png) no-repeat;
+				padding: 10px;
+			}
+			#box{
+				width: 500px;
+				height: 500px;
+				text-align: center;
+				
+			}
+			#title{
+				display: block;
+				margin: 20px auto;
+			}
+			
+			img{
+				vertical-align: middle;
+			}
+			.time{
+				width: 25px;
+				height: 37px;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="wrap">
+			<div id="box">
+				<img src="images/title.png" id="title"/>
+				<img src="images/0.png" class="time"/>
+				<img src="images/0.png" class="time"/>
+				<img src="images/0.png" class="time"/>
+				<img src="images/0.png" class="time"/>
+				<img src="images/year.png" />
+				<img src="images/0.png" class="time"/>
+				<img src="images/9.png" class="time"/>
+				<img src="images/month.png" />
+				<img src="images/2.png" class="time"/>
+				<img src="images/9.png" class="time"/>
+				<img src="images/seven.png" />
+				<br />
+				<br />
+				<br />
+				<br />
+				<img src="images/1.png" class="time"/>
+				<img src="images/5.png" class="time"/>
+				<img src="images/sign.png" />
+				<img src="images/2.png" class="time"/>
+				<img src="images/9.png" class="time"/>
+				<img src="images/sign.png" />
+				<img src="images/0.png" class="time"/>
+				<img src="images/0.png" class="time"/>
+				<br />
+				<br />
+				<br />
+				<br />
+				<img src="images/week.png" />
+				<img src="images/one.png" class="week" />
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript">
+		var imgs=document.getElementsByClassName('time');
+		function getDate1(){
+			var date = new Date();
+			var week=['seven','one','two','three','four','five','six'];
+			var year= date.getFullYear().toString();
+			var month= toDB(date.getMonth()+1);
+			var date1=toDB(date.getDate());
+			var hours= toDB(date.getHours());
+			var minutes=toDB(date.getMinutes());
+			var seconds=toDB(date.getSeconds());
+			var day=date.getDay();
+			imgs[imgs.length-1].src='images/'+week[day]+'.png';
+			var str=year+month+date1+hours+minutes+seconds;
+			for(var i=0;i<imgs.length;i++){
+				imgs[i].now=src[i];
+			}
+		}
+		getDate1();
+		setInterval(getDate1,1000);
+		function getDate1(){
+			var date = new Date();
+			var week=['seven','one','two','three','four','five','six'];
+			var year= date.getFullYear().toString();
+			var month= toDB(date.getMonth()+1);
+			var date1=toDB(date.getDate());
+			var hours= toDB(date.getHours());
+			var minutes=toDB(date.getMinutes());
+			var seconds=toDB(date.getSeconds());
+			var day=date.getDay();
+			imgs[imgs.length-1].src='images/'+week[day]+'.png';
+			var str=year+month+date1+hours+minutes+seconds;
+			for(var i=0;i<imgs.length;i++){
+				toChange(imgs[i],str[i]);
+			}
+		};
+		function toDB(x){
+			return x<10?'0'+x:''+x;
+		};
+		
+		function toChange(img,src){
+			if(img.now!=src){
+				img.now=src;
+				mTween(img,{height:0},300,'linear',function(){
+				img.src='images/'+src+'.png';
+				mTween(img,{height:37},300,'linear')
+				});
+			}
+			
+		};
+	</script>
+</html>
