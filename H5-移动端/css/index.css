@@ -1,0 +1,275 @@
+
+		#header{
+			overflow: hidden;
+			background: #000;
+			height: 2rem;
+			border-bottom: 1px solid #111;
+		}
+		#btn{
+			float: left;
+			padding-left: 0.889rem;
+			padding-top: 0.667rem;
+			width: 0.4rem;
+			height: 0.71rem;
+			background: url(../img/btn_1.png) no-repeat right 0.889rem;
+			background-image: 0.4rem 0.71rem;
+		}
+		.til{
+			float: left;
+			text-align: center;
+		}
+		.til h2{
+			float: left;
+			color:#fff;
+			font-size: 0.667rem;
+			line-height: 2rem;
+			text-align: center;
+			position: relative;
+		}
+		.til .all{
+			margin-right: 2rem;
+			color:#555;
+			font-size: 0.71rem;
+			margin-left: 4.222rem;
+		}
+		.til i{
+			position: absolute;
+			bottom: 0;
+			left: 4px;
+			display: block;
+			width: 20px;
+			height: 2px;
+		}
+		.til .active{
+			background: #d92939;
+		}
+		#title{
+			background: #111;
+			height: 0.9333rem;
+			padding: 0.889rem 1.244rem 0.9778rem ;
+			border-top: 1px solid #191919;
+		}
+		#title h2{
+			font-size: 0.9778rem;
+			color: #fff;
+		}
+		#wrap{
+			background: #111;
+		}
+		.person{
+			height: 1.111rem; 
+		}
+		.person img{
+			float:left;
+			width:1.111rem;
+			height:1.111rem;
+			border-radius: 0.444rem;
+			margin-left: 0.978rem;
+		}
+		.info{
+			float:left;
+			margin-left: 0.444rem;
+			position: relative;
+			height: 1.111rem;
+		}
+		.info div{
+			overflow: hidden;
+			height: 0.622rem;
+			
+		}
+		.info div h4{
+			float: left;
+			font-size: 0.533rem;
+			line-height: 0.533rem;
+			color: #fff;
+			margin-right: 0.289rem;
+		}
+		.info .gender{
+			float: left;
+			display: block;
+			width: 0.556rem;
+			height: 0.556rem;
+			border-radius: 0.26rem;
+			background: #63b4ff;
+			color:#111;
+			font-weight: 600;
+			font-size:0.5rem;
+			text-align: center;
+			margin-right: 0.4rem;
+		}
+		.info .level{
+			float: left;
+			background: #d92939;
+			color: #fff;
+			width: 1.2444rem;
+			height: 0.622rem;
+			border-radius: 4px;
+			font-size: 0.444rem;
+			text-align: center;
+		}
+		.info time{
+			position: absolute;
+			left: 0;
+			bottom: -0.444rem;
+			display: block;/*
+			width: 3.333rem;*/
+			font-size: 0.444rem;
+			color: #a7a7a7;
+		}
+		.txt_1{
+			margin: 0.978rem 1.289rem 0.89rem 0.8rem;
+			font-size:  0.578rem;
+			color: #a7a7a7;
+			line-height: 0.756rem;
+		}
+		.pic img{
+			height: 16.444rem;
+		}
+		.txt_2{
+			margin: 0.978rem 0.889rem 0.89rem 1.244rem;
+			font-size:  0.578rem;
+			color: #a7a7a7;
+			line-height: 0.756rem;
+		}
+		.zan_mes{
+			height: 0.756rem;
+			position: relative; 
+			margin-bottom: 0.5333rem;
+		}
+		.zan{
+			position: absolute;
+			right: 3.467rem;
+			top: 0;
+			height: 0.756rem;
+		}
+		.mes{
+			position: absolute;
+			right: 0.756rem;
+			top: 0;
+			height: 0.756rem;
+		}
+		.zan span{
+			float:left;
+			display: block;
+			width: 0.644rem;
+			height: 0.756rem;
+			background: url(../img/zan.png) no-repeat;
+			background-size: 0.644rem 0.756rem;
+			margin-right: 0.178rem;
+		}
+		.zan_mes strong{
+			float:left;
+			font-size: 0.533rem;
+			color: #555; 
+			padding-top: 0.1778rem ;
+			line-height: 0.578rem;
+		}
+		.mes span{
+			float:left;
+			display: block;
+			margin-top: 0.178rem;
+			margin-right: 0.178rem;
+			width: 0.622rem;
+			height: 0.578rem;
+			background: url(../img/mes.png) no-repeat ;
+			background-size: 0.622rem 0.578rem;
+		}
+		#message h2{
+			font-size: 0.711rem;
+			line-height: 1.711rem;
+			color: #a7a7a7;
+			padding-left: 0.711rem;
+		}
+		#message ul{
+			border: 1px solid #222;
+		}
+		#message ul li{
+			overflow: hidden;
+			border: 1px solid #222;
+		}
+		.left{
+			float: left;
+			padding-top: 0.533rem;
+			padding-left:0.888rem;	
+			text-align: center;
+			margin-right: 0.24rem;
+		}
+		.left img{
+			width:1.244rem;
+			height:1.244rem;
+			border-radius: 0.444rem;
+			margin-bottom: 0.311rem;
+		}
+		.left h4{
+			font-size: 0.533rem;
+			color: #555;
+		}
+		.right{
+			float: left;
+			width: 13.4rem;
+			padding-top: 0.133rem;
+		}
+		.right_por{
+			height: 2.044rem;
+			overflow: hidden;
+		}
+		.right_por h4{
+			float: left;
+			line-height: 2.044rem;
+			font-size: 0.5333rem;
+			color: #a7a7a7;
+			margin-right: 0.222rem;
+		}
+		.right_por .gender{
+			float: left;
+			display: block;
+			margin-top: 0.8667rem;
+			width: 0.444rem;
+			height: 0.444rem;
+			background: #63b4ff;
+			font-size: 0.444rem;
+			border-radius: 0.222rem;
+			color:#111;
+			font-weight: 600;
+			text-align: center;
+		}
+		.right_por i{
+			font-style: normal;
+			display: block;
+			float: right;
+			font-size: 0.444rem;
+			margin-right: 1.644rem;
+			line-height: 2.044rem;
+			color: #555;
+		}
+		.right p{
+			font-size: 0.533rem;
+			color: #fff;
+			line-height: 0.755rem;
+		}
+		.right img{
+			display: block;
+			height: 2.7556rem;
+			margin:  0.422rem 0;
+		}
+		.mess_input{
+			position: relative;
+			width: 12.447rem;
+			padding-top: 0.2667rem;
+			margin-bottom: 0.556rem;
+		}
+		.inp{
+			position: absolute;
+			left: 0.755rem;
+			top: .0889rem;
+			display: block;
+			background: url(../img/input_2.png) no-repeat;
+			width: 1.4rem;
+			height: 1.2rem;
+		}
+		.texts{
+			border-radius: 0.0889rem;
+			line-height: 1.911rem;
+			width: 12.447rem;
+			background: #222222;
+		}

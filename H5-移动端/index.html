@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>	
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script>
+		(function(){
+			window.onresize = function(){
+				var html = document.documentElement;
+				var hWidth = html.getBoundingClientRect().width;
+				html.style.fontSize = hWidth/16 +'px';
+			}
+			
+			//720px--> 1rem =45px;
+		})()
+	</script>
+</head>
+<body>
+	<header id="header">
+		<span id="btn"></span>
+		<div class="til">
+			<h2 class="all">全部<i ></i></h2>
+			<h2>楼主<i class="active"></i></h2>
+		</div>	
+	</header>
+	<section id="title">
+		<h2>标题标题标题</h2>
+	</section>
+	<section id="wrap">
+		<div class="person">
+			<img src="img/pro.jpg"/>
+			<div class="info">
+				<div>
+					<h4>大先生</h4>
+					<span class="gender">♂</span>
+					<span class="level">楼主</span>
+				</div>
+				<time>2017-02-08</time>
+			</div>
+		</div>
+		<p class="txt_1">
+			内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+		</p>
+		<div class="pic">
+			<img src="img/j1.jpg"/>
+		</div>
+		<p class="txt_2">
+			内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+		</p>
+		<div class="zan_mes">
+			<div class="zan">
+				<span></span>
+				<strong>100</strong>
+			</div>
+			<div class="mes">
+				<span></span>
+				<strong>100</strong>
+			</div>
+		</div>
+	</section>
+	<section id="message">
+		<h2>全部回复</h2>
+		<ul>
+			<li>
+				<div class="left">
+					<img src="img/pro.jpg"/>
+					<h4>1楼</h4>
+				</div>
+				<div class="right">
+					<div class="right_por">
+						<h4>大先生</h4>
+						<span class="gender">♂</span>
+						<i>1分钟前</i>
+					</div>
+					<p>圈子介绍圈子介绍圈子介绍圈子介绍圈子介绍圈子介绍圈子介绍圈子介绍圈子介绍圈子介绍</p>
+					<img src="img/j1.jpg"/>
+					<div class="mess_input">
+						<span class="inp"></span>
+						<input type="text" name="" class="texts" />
+					</div>
+					<div class="zan_mes">
+						<div class="zan">
+							<span></span>
+							<strong>100</strong>
+						</div>
+						<div class="mes">
+							<span></span>
+							<strong>100</strong>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+</body>
+</html>
