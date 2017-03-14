@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	
+</head>
+<body>
+	<section id="load">
+		<img src="img/118.jpg" alt="bg" />
+		<canvas id="canvas_load" width="300" height="500"></canvas>
+	</section>
+	<section id="wrap">
+		<header class="r">
+			<div class='menu'>
+				<i></i>
+				<i></i>
+				<i></i>
+			</div>
+		</header>
+		<div class="nav">
+			<ul>
+				<li>
+					<h3>home</h3>
+					<a href="#">
+						<img src="img/17.jpg" alt="" />
+						
+					</a>
+					<h4>首 页</h4>
+				</li>
+				<li>
+					<h3>home</h3>
+					<a href="#">
+						<img src="img/17.jpg" alt="" />
+						
+					</a>
+					<h4>首页</h4>
+				</li>
+				<li>
+					<h3>home</h3>
+					<a href="#">
+						<img src="img/17.jpg" alt="" />
+						
+					</a>
+					<h4>首页</h4>
+				</li>
+				<li>
+					<h3>home</h3>
+					<a href="#">
+						<img src="img/17.jpg" alt="" />
+						
+					</a>
+					<h4>首页</h4>
+				</li>
+				<li>
+					<h3>home</h3>
+					<a href="#">
+						<img src="img/17.jpg" alt="" />
+						
+					</a>
+					<h4>首页</h4>
+				</li>
+			</ul>
+		</div>
+		<div class="area">
+			<div class="canvas_area">
+				<canvas id="canvas"></canvas>
+			</div>
+			<div id= "btn_area">
+				<a href="#" title="topics"><span></span></a>
+				<a href="#" title="contact"><span></span></a>
+				<a href="#" title="jopics"><span></span></a>
+				<a href="#" title="home" id="home"><i></i><span></span></a>
+				<a href="#" title="learn" id="learn"><i></i><span></span></a>
+			</div>
+			<div class="dateTime">
+				<div class="clearfix">
+					<div><img src="img/num0.png" alt="" class="time"/></div>
+					<div><img src="img/num0.png" alt="" class="time"/></div>
+					<div><img src="img/num10.png" alt="" /></div>
+					<div><img src="img/num0.png" alt="" class="time"/></div>
+					<div><img src="img/num0.png" alt="" class="time"/></div>
+					<div><img src="img/num10.png" alt="" /></div>
+					<div><img src="img/num0.png" alt="" class="time"/></div>
+					<div><img src="img/num0.png" alt="" class="time"/></div>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+</body>
+<script src="index.js"></script>
+<script>
+	var wrap= document.getElementById('wrap');
+		var div_r= wrap.children[0];
+		var menu=div_r.querySelector('.menu');
+		var nav = wrap.children[1];
+		var flag= false;
+		menu.onclick= function(){
+			div_r.className+=' act';
+			nav.style.display='block';
+			if(flag){
+				div_r.className='r';
+				var lis = nav.getElementsByTagName('li');
+				for(var i=0;i<lis.length;i++){
+					lis[i].style.top="-600px";
+				}
+				nav.style.display='none';
+				
+			}else{
+				setTimeout(function(){
+					var lis = nav.getElementsByTagName('li');
+					for(var i=0;i<lis.length;i++){
+						lis[i].style.top=0;
+					}
+				},20);
+			}
+			flag=!flag;
+		}
+		
+		var dateTime = document.querySelector('.dateTime');
+	
+		getTime();
+		setInterval(function(){
+			getTime();
+		},1000)
+		function getTime(){
+			var t = new Date();
+			var times= dateTime.querySelectorAll('.time');
+			var hou= t.getHours(),
+				minutes = t.getMinutes(),
+				sec = t.getSeconds();
+			var str = toDB(hou).toString() + toDB(minutes).toString() + toDB(sec).toString();
+			console.log(str);
+			for(var i=0;i<times.length;i++){
+				times[i].src="img/num"+str[i]+".png";
+			}
+		}
+		function toDB(x){
+			return x<10?'0'+x:''+x;
+		}
+</script>
+</html>
