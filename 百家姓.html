@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			#sence{
+				width: 1366px;
+				height: 643px;
+				margin: 80px auto;
+				transform-style: preserve-3d;
+				perspective: 10000px;
+				position: relative;
+				-webkit-transform: scale(0.5);
+				   -moz-transform: scale(0.5);
+				    -ms-transform: scale(0.5);
+				     -o-transform: scale(0.5);
+				        transform: scale(0.5);
+			}
+			.box{
+				width: 100%;
+				height: 100%;
+				position: relative;
+				top: -200px;
+				transform-style: preserve-3d;
+			}
+			.list{
+				/*display: flex;*/
+				width: 100%;
+				height: 100%;
+				position: relative;
+				transform-style: preserve-3d;
+				
+				-webkit-transform: translate(340px) ;
+				   -moz-transform: translate(340px) ;
+				    -ms-transform: translate(340px) ;
+				     -o-transform: translate(340px) ;
+				        transform: translate(340px) ;
+			}
+			.list li{
+				 position: absolute;
+				width: 100px;
+				height: 100px;
+				line-height: 100px;
+				font-size: 40px;
+				background: red;
+				border: 1px solid #6495ED;
+				float: left;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="sence">
+			<div class="box">
+				<ul class="list">
+					
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var arr=[
+			'王','李','张','刘','陈','杨','黄','吴','赵','周',
+			'徐','孙','马','朱','胡','林','郭','何','高','罗',
+			'郑','梁','谢','宋','唐','许','邓','冯','韩','曹',
+			'曾','彭','萧','蔡','潘','田','董','袁','于','余',
+			'叶','蒋','杜','苏','魏','程','吕','丁','沈','任',
+			'姚','卢','傅','钟','姜','崔','谭','廖','范','汪',
+			'陆','金','石','戴','贾','韦','夏','邱','方','侯',
+			'邹','熊','孟','秦','白','江','阎','薛','尹','段',
+			'雷','黎','史','龙','陶','贺','顾','毛','郝','龚',
+			'邵','万','钱','严','赖','覃','洪','武','莫','孔'
+		];
+		//var arrs=[1,3,5,7,9,11,9,7,5,3,1];
+		var box = document.querySelector('.box');
+		var list = box.querySelector('ul');
+		/*-----------------------*/
+		var num=0;
+		var layer=0//层数
+		for(var i=4;i<11;i++){
+			num=i*i+(i+1)*(i+1);
+			if(num>=arr.length){
+				layer= (i-1)*2+1;
+				break;
+			}
+			layer=(i-1)*2+1;
+		}
+		var wordNum=-1;
+		var circleArr=[];
+		for(var i=0;i<layer;i++){
+			if(i<(layer+1)/2){
+				wordNum+=2;
+			}else{
+				wordNum-=2;
+			}
+			circleArr.push(wordNum);
+		}
+		//r与y轴的夹角
+		var theta=Math.PI / (circleArr.length-1);
+		var phi=0;
+		var r=500;
+		num=0
+		for(var i=0;i<circleArr.length;i++){
+			phi=Math.PI*2 /circleArr[i];
+			for(var j=0;j<circleArr[i];j++){
+				li=document.createElement('li');
+				li.innerHTML=arr[num];
+				num++;
+				drawCir(li,theta,phi,i,j);
+				list.appendChild(li);
+			}
+		}
+		var lis= list.children;
+		for(var i=0;i<lis.length;i++){
+			lis[i].style.transform='translate3D('+lis[i].circleX+'px,'
+							+lis[i].circleY+'px,'+lis[i].circleZ+'px) rotateY('
+							+lis[i].circlePhi+'rad) rotateX('+lis[i].circleTheta+'rad)';
+		}
+		var angleX=0;
+		setInterval(function(){
+			angleX++;
+			box.style.transform='rotateX('+angleX+'deg) rotateY('+angleX+'deg)'
+		},60)
+		function drawCir(obj,theta,phi,i,j){
+			obj.circleX= r * Math.sin(theta*i)*Math.sin(phi*j)+200,
+			obj.circleY= -r * Math.cos(theta*i)+200,
+			obj.circleZ= r * Math.sin(theta*i)*Math.cos(phi*j);
+			obj.circlePhi= phi*j ;
+			obj.circleTheta= theta*(circleArr.length-i)-Math.PI/2;
+		}
+	</script>
+</html>
